@@ -15,8 +15,4 @@ class ListaEncadeada:
         self.size =+ 1 
     
     def __len__(self):
-        return self.size 
-    
-
-
-    
+        return self.size

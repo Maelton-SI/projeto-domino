@@ -9,7 +9,6 @@ class Domino:
         pecas = ListaEncadeada()
 
         for lado_um in range(7):
-
             for lado_dois in range(lado_um, 7):
                 peca = (lado_um, lado_dois)
                 pecas.add(peca)
@@ -23,4 +22,7 @@ class Domino:
         pass
 
     def imprime_domino(self):
-        pass
+        noh_atual = self.pecas.head
+        while noh_atual != None:
+            print(noh_atual.getDados())
+            noh_atual = noh_atual.getProximo()
