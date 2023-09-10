@@ -9,5 +9,5 @@ class ListaEncadeada:
 
     def add(self, item):
         novo_noh = Noh(item)
-        novo_noh.setProximo = self.head
+        novo_noh.setProximo(self.head)
         self.head = novo_noh
