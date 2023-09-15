@@ -4,10 +4,6 @@ from classes.Jogador import *
 
 d = Domino()
 d.imprime_domino()
-global jogador1
-global jogador2
-global jogador3
-global jogador4
 
 while True:
     qtd_jogadores = menu_inicial()
@@ -50,7 +46,6 @@ while True:
         print('Opção inválida')
 
 print(jogador1.nome)
-print(jogador1.pecas)
 jogador1.imprime_pecas()
 print(jogador2.nome)
-# jogador2.imprime_pecas()
+jogador2.imprime_pecas()
