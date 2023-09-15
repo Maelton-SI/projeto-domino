@@ -4,7 +4,7 @@ from classes.Jogador import *
 
 d = Domino()
 d.imprime_domino()
-
+global qtd_jogadores
 while True:
     qtd_jogadores = menu_inicial()
     peca_atual = d.pecas.head.getDados()
@@ -34,17 +34,17 @@ while True:
         for i in range(0, 7):
             if i == 0:
                 jogador1.pecas.add(peca_atual)
-                ponteiro_atual = d.pecas.head.getProximo()
-                jogador2.pecas.add(ponteiro_atual.getDados())
-                ponteiro_atual = ponteiro_atual.getProximo() 
-                jogador3.pecas.add(ponteiro_atual.getDados())
-                ponteiro_atual = ponteiro_atual.getProximo()
+                peca_atual = d.pecas.head.getProximo()
+                jogador2.pecas.add(peca_atual.getDados())
+                peca_atual = peca_atual.getProximo()
+                jogador3.pecas.add(peca_atual.getDados())
             else:
-                jogador1.pecas.add(ponteiro_atual.getDados())
-                ponteiro_atual = d.pecas.head.getProximo()
-                jogador2.pecas.add(ponteiro_atual.getDados())
-                ponteiro_atual = ponteiro_atual.getProximo() 
-                jogador3.pecas.add(ponteiro_atual.getDados())
+                peca_atual = peca_atual.getProximo()
+                jogador1.pecas.add(peca_atual.getDados())
+                peca_atual = peca_atual.getProximo()
+                jogador2.pecas.add(peca_atual.getDados())
+                peca_atual = peca_atual.getProximo()
+                jogador3.pecas.add(peca_atual.getDados())
         break
     elif qtd_jogadores == 4:
         jogador1 = Jogador()
@@ -55,13 +55,46 @@ while True:
         jogador3.nome = nome_jogador(3)
         jogador4 = Jogador()
         jogador4.nome = nome_jogador(4)
+        for i in range(0, 7):
+            if i == 0:
+                jogador1.pecas.add(peca_atual)
+                peca_atual = d.pecas.head.getProximo()
+                jogador2.pecas.add(peca_atual.getDados())
+                peca_atual = peca_atual.getProximo()
+                jogador3.pecas.add(peca_atual.getDados())
+                peca_atual = peca_atual.getProximo()
+                jogador4.pecas.add(peca_atual.getDados())
+            else:
+                peca_atual = peca_atual.getProximo()
+                jogador1.pecas.add(peca_atual.getDados())
+                peca_atual = peca_atual.getProximo()
+                jogador2.pecas.add(peca_atual.getDados())
+                peca_atual = peca_atual.getProximo()
+                jogador3.pecas.add(peca_atual.getDados())
+                peca_atual = peca_atual.getProximo()
+                jogador4.pecas.add(peca_atual.getDados())
         break
     else:
         print('Opção inválida')
 
-print(jogador1.nome)
-jogador1.imprime_pecas()
-print(jogador2.nome)
-jogador2.imprime_pecas()
-print(jogador3.nome)
-jogador3.imprime_pecas()
+if qtd_jogadores == 2:
+    print(jogador1.nome)
+    jogador1.imprime_pecas()
+    print(jogador2.nome)
+    jogador2.imprime_pecas()
+elif qtd_jogadores == 3:
+    print(jogador1.nome)
+    jogador1.imprime_pecas()
+    print(jogador2.nome)
+    jogador2.imprime_pecas()
+    print(jogador3.nome)
+    jogador3.imprime_pecas()
+elif qtd_jogadores == 4:
+    print(jogador1.nome)
+    jogador1.imprime_pecas()
+    print(jogador2.nome)
+    jogador2.imprime_pecas()
+    print(jogador3.nome)
+    jogador3.imprime_pecas()
+    print(jogador4.nome)
+    jogador4.imprime_pecas()
