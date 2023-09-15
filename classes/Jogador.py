@@ -6,16 +6,6 @@ class Jogador():
         self.pontuacao = int()
         self.pecas = ListaEncadeada()
     
-    def imprime_pecas(self):
-        peca_atual = self.pecas.head.getDados()
-        for i in range(0, self.pecas.size):
-            if i == 0:
-                print(peca_atual, end='')
-            else:
-                peca_atual = peca_atual.getProximo()
-                print(peca_atual.getDados(), end='')
-
-    
     def jogar(self):
         pass
 
@@ -25,5 +15,9 @@ class Jogador():
     def ganhar(self):
         #ganha se nao tiver mais pecas
         pass
+
+    def imprime_pecas(self):
+        self.pecas.imprime_lista_encadeada()
+
 
     

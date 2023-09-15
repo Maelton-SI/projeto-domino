@@ -88,14 +88,3 @@ class Deque:
         last_data = self.__len__()-1
         return self.dados[last_data]
     
-    
-
-d = Deque(3)
-d.add_last(2)
-d.add_first(1)
-d.delete_first()
-d.add_last(4)
-d.add_first(5)
-d.add_last(9)
-print(d.dados)
-print(d.last())
