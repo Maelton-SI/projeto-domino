@@ -3,107 +3,62 @@ from funcoes.menus import *
 from classes.Jogador import *
 from estrutura_de_dados.Deque import * 
 
-d = Domino()
-d.imprime_domino()
-global qtd_jogadores
-while True:
-    qtd_jogadores = menu_inicial()
-    peca_atual = d.pecas.head.getDados()
-    if qtd_jogadores == 2:
-        jogador1 = Jogador()
-        jogador1.nome = nome_jogador(1)
-        jogador2 = Jogador()
-        jogador2.nome = nome_jogador(2)
-        for i in range(0, 7):
-            if i == 0:
-                jogador1.pecas.add(peca_atual)
-                peca_atual = d.pecas.head.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
-            else:
-                peca_atual = peca_atual.getProximo()
-                jogador1.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
-        break
-    elif qtd_jogadores == 3:
-        jogador1 = Jogador()
-        jogador1.nome = nome_jogador(1)
-        jogador2 = Jogador()
-        jogador2.nome = nome_jogador(2)
-        jogador3 = Jogador()
-        jogador3.nome = nome_jogador(3)
-        for i in range(0, 7):
-            if i == 0:
-                jogador1.pecas.add(peca_atual)
-                peca_atual = d.pecas.head.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador3.pecas.add(peca_atual.getDados())
-            else:
-                peca_atual = peca_atual.getProximo()
-                jogador1.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador3.pecas.add(peca_atual.getDados())
-        break
-    elif qtd_jogadores == 4:
-        jogador1 = Jogador()
-        jogador1.nome = nome_jogador(1)
-        jogador2 = Jogador()
-        jogador2.nome = nome_jogador(2)
-        jogador3 = Jogador()
-        jogador3.nome = nome_jogador(3)
-        jogador4 = Jogador()
-        jogador4.nome = nome_jogador(4)
-        for i in range(0, 7):
-            if i == 0:
-                jogador1.pecas.add(peca_atual)
-                peca_atual = d.pecas.head.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador3.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador4.pecas.add(peca_atual.getDados())
-            else:
-                peca_atual = peca_atual.getProximo()
-                jogador1.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador3.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador4.pecas.add(peca_atual.getDados())
-        break
-    else:
-        print('Opção inválida')
+meu_domino = Domino()
+opcao_menu_inicial = menu_inicial()
 
-if qtd_jogadores == 2:
-    print(jogador1.nome)
-    jogador1.imprime_pecas()
-    print(jogador2.nome)
-    jogador2.imprime_pecas()
-elif qtd_jogadores == 3:
-    print(jogador1.nome)
-    jogador1.imprime_pecas()
-    print(jogador2.nome)
-    jogador2.imprime_pecas()
-    print(jogador3.nome)
-    jogador3.imprime_pecas()
-elif qtd_jogadores == 4:
-    print(jogador1.nome)
-    jogador1.imprime_pecas()
-    print(jogador2.nome)
-    jogador2.imprime_pecas()
-    print(jogador3.nome)
-    jogador3.imprime_pecas()
-    print(jogador4.nome)
-    jogador4.imprime_pecas()
+if opcao_menu_inicial == 1:
+    jogador_um = Jogador()
+    jogador_dois = Jogador()
 
-deque = Deque(4)
-deque.add_randon(1)
-deque.add_randon(3)
-deque.add_randon(9)
-deque.add_randon(10)
-d.pecas.emb(deque)
-print(deque.dados)
+    nome_jogador_um = str(input("Digite o nome do primeiro jogador: "))
+    nome_jogador_dois = str(input("Digite o nome do segundo jogador: "))
+
+    jogador_um.set_nome(nome_jogador_um)
+    jogador_dois.set_nome(nome_jogador_dois)
+
+    for _ in range(7):
+         jogador_um.pega_peca(meu_domino.remove_proxima_peca())
+         jogador_dois.pega_peca(meu_domino.remove_proxima_peca())
+
+elif opcao_menu_inicial == 2:
+    jogador_um = Jogador()
+    jogador_dois = Jogador()
+    jogador_tres = Jogador()
+
+    nome_jogador_um = str(input("Digite o nome do primeiro jogador: "))
+    nome_jogador_dois = str(input("Digite o nome do segundo jogador: "))
+    nome_jogador_tres = str(input("Digite o nome do terceiro jogador: "))
+
+    jogador_um.set_nome(nome_jogador_um)
+    jogador_dois.set_nome(nome_jogador_dois)
+    jogador_tres.set_nome(nome_jogador_tres)
+
+    for _ in range(7):
+         jogador_um.pega_peca(meu_domino.remove_proxima_peca())
+         jogador_dois.pega_peca(meu_domino.remove_proxima_peca())
+         jogador_tres.pega_peca(meu_domino.remove_proxima_peca())
+
+elif opcao_menu_inicial == 3:
+    jogador_um = Jogador()
+    jogador_dois = Jogador()
+    jogador_tres = Jogador()
+    jogador_quatro = Jogador()
+
+    nome_jogador_um = str(input("Digite o nome do primeiro jogador: "))
+    nome_jogador_dois = str(input("Digite o nome do segundo jogador: "))
+    nome_jogador_tres = str(input("Digite o nome do terceiro jogador: "))
+    nome_jogador_quatro = str(input("Digite o nome do quarto jogador: "))
+
+    jogador_um.set_nome(nome_jogador_um)
+    jogador_dois.set_nome(nome_jogador_dois)
+    jogador_tres.set_nome(nome_jogador_tres)
+    jogador_quatro.set_nome(nome_jogador_quatro)
+
+    for _ in range(7):
+         jogador_um.pega_peca(meu_domino.remove_proxima_peca())
+         jogador_dois.pega_peca(meu_domino.remove_proxima_peca())
+         jogador_tres.pega_peca(meu_domino.remove_proxima_peca())
+         jogador_quatro.pega_peca(meu_domino.remove_proxima_peca())
+
+elif opcao_menu_inicial == 4:
+    print("Obrigado por jogar conosco, até a próxima!")

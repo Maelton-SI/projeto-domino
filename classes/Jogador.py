@@ -6,6 +6,12 @@ class Jogador():
         self.pontuacao = int()
         self.pecas = ListaEncadeada()
     
+    def set_nome(self, nome):
+        self.nome = nome
+    
+    def pega_peca(self, peca):
+        self.pecas.add(peca)
+
     def jogar(self):
         pass
 

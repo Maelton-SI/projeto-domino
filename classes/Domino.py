@@ -18,8 +18,19 @@ class Domino:
     def embaralha_domino(self):
         pass
 
-    def size(self):
-        pass
+    def remove_proxima_peca(self):
+        """
+        Remove a proxima peça disponível do dominó e retorna seu valor.
+        Retorna False se o dominó não possuir mais peças.
+        """
+
+        proxima_peca = self.pecas.head.getDados()
+        
+        if proxima_peca != None:
+            self.pecas.head = self.pecas.head.getProximo()
+            return proxima_peca
+        else:
+            return False
 
     def imprime_domino(self):
         noh_atual = self.pecas.head
