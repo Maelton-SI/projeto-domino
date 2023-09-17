@@ -14,3 +14,6 @@ class Noh:
     
     def setProximo(self, proximo):
         self.proximo = proximo
+
+if __name__ == "__main__":
+    pass

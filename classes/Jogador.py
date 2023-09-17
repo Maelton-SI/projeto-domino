@@ -12,7 +12,7 @@ class Jogador():
     def pega_peca(self, peca):
         self.pecas.add(peca)
 
-    def jogar(self):
+    def jogar(self, peca):
         pass
 
     def passar(self):
@@ -23,7 +23,13 @@ class Jogador():
         pass
 
     def imprime_pecas(self):
-        self.pecas.imprime_lista_encadeada()
+        noh_atual = self.pecas.head
+        print(f"{self.nome}: ", end="")
 
+        while noh_atual != None:
+            print(f"[{noh_atual.getDados()[0]}-{noh_atual.getDados()[1]}] ", end="")
+            noh_atual = noh_atual.getProximo()
+        print('\n')
 
-    
+if __name__ == "__main__":
+    pass

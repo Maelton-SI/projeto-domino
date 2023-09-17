@@ -6,6 +6,9 @@ class Domino:
         self.pecas = self.gera_domino()
     
     def gera_domino(self):
+        """
+        Retorna uma lista encadeada, onde os valores dos nós são tuplas representando as peças de um dominó.
+        """
         pecas = ListaEncadeada()
 
         for lado_um in range(7):
@@ -35,5 +38,8 @@ class Domino:
     def imprime_domino(self):
         noh_atual = self.pecas.head
         while noh_atual != None:
-            print(noh_atual.getDados())
+            print(f"[{noh_atual.getDados()[0]}-{noh_atual.getDados()[1]}]")
             noh_atual = noh_atual.getProximo()
+
+if __name__ == "__main__":
+    pass

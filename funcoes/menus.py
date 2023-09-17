@@ -16,3 +16,6 @@ def menu_inicial():
             return escolha
         else:
             print('Opção inválida, tente novamente!\n')
+
+if __name__ == "__main__":
+    pass
