@@ -17,4 +17,7 @@ class Jogador():
         pass
 
     def imprime_pecas(self):
-        pass
+        self.pecas.imprime_lista_encadeada()
+
+
+    
