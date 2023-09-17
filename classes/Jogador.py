@@ -1,4 +1,5 @@
 from estrutura_de_dados.ListaEncadeada import ListaEncadeada
+from estrutura_de_dados.Deque import *
 
 class Jogador():
     def __init__(self):
@@ -6,8 +7,11 @@ class Jogador():
         self.pontuacao = int()
         self.pecas = ListaEncadeada()
     
-    def jogar(self):
-        pass
+    def jogar(self, primeira_jogada):
+        if primeira_jogada == True:
+            pass
+        else:
+            pass
 
     def passar(self):
         pass

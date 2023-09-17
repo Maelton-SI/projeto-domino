@@ -39,5 +39,26 @@ class ListaEncadeada:
                 print(peca_atual.getDados())
                 d.add_randon(peca_atual.getDados())
                 peca_atual = peca_atual.getProximo()
-                #print("removido")
+    
+    def remove(self, elem):
+        if self.head == None:
+            raise ValueError("{} is not in list".format(elem))
+        elif self.head.getDados() == elem:
+            print(f"{self.head.getDados()} removido!")
+            self.head = self.head.getProximo()
+            self.size =- 1
+        else:
+            ancestor = self.head
+            ponteiro = self.head.getProximo()
+            while(ponteiro):
+                if ponteiro.getDados() == elem:
+                    print(f"{ponteiro.getDados()} removido!")
+                    ancestor.setProximo(ponteiro.getProximo())
+                    ponteiro.setProximo(None)
+                    self.size =- 1
+                    return True
+           
+                ancestor = ponteiro
+                ponteiro = ponteiro.getProximo()
+            raise ValueError("{} is not in list".format(elem))  
         
