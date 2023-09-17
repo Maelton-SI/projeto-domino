@@ -1,6 +1,7 @@
 from classes.Domino import Domino
 from funcoes.menus import *
 from classes.Jogador import *
+from estrutura_de_dados.Deque import * 
 
 d = Domino()
 d.imprime_domino()
@@ -98,3 +99,11 @@ elif qtd_jogadores == 4:
     jogador3.imprime_pecas()
     print(jogador4.nome)
     jogador4.imprime_pecas()
+
+deque = Deque(4)
+deque.add_randon(1)
+deque.add_randon(3)
+deque.add_randon(9)
+deque.add_randon(10)
+d.pecas.emb(deque)
+print(deque.dados)

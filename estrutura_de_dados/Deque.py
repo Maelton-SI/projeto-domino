@@ -1,3 +1,5 @@
+from random import randint as rd
+
 class DequeCheio(Exception):
     pass
 
@@ -87,4 +89,16 @@ class Deque:
     def last(self):
         last_data = self.__len__()-1
         return self.dados[last_data]
+    
+    def add_randon(self, elem):
+        if rd(0,1) == 0:
+            self.add_first(elem)
+        else:
+            self.add_last(elem)
+
+    def delete_randon(self):
+        if rd(0,1) == 0:
+            self.delete_last()
+        else:
+            self.delete_first()
     
