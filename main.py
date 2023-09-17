@@ -5,26 +5,25 @@ from estrutura_de_dados.Deque import *
 from classes.Domino import *
 
 d = Domino()
-d.imprime_domino()
+# d.imprime_domino()
+deque = d.embaralhadas.dados
+# print(deque)
 global qtd_jogadores
 while True:
     qtd_jogadores = menu_inicial()
-    peca_atual = d.pecas.head.getDados()
+    # peca_atual = d.pecas.head.getDados()
     if qtd_jogadores == 2:
         jogador1 = Jogador()
         jogador1.nome = nome_jogador(1)
         jogador2 = Jogador()
         jogador2.nome = nome_jogador(2)
         for i in range(0, 7):
-            if i == 0:
-                jogador1.pecas.add(peca_atual)
-                peca_atual = d.pecas.head.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
-            else:
-                peca_atual = peca_atual.getProximo()
-                jogador1.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
+            peca_atual = deque[i]
+            jogador1.pecas.add(peca_atual)
+        for c in range(7, 14):
+            peca_atual = deque[c]
+            jogador2.pecas.add(peca_atual)
+            
         break
     elif qtd_jogadores == 3:
         jogador1 = Jogador()
@@ -34,19 +33,15 @@ while True:
         jogador3 = Jogador()
         jogador3.nome = nome_jogador(3)
         for i in range(0, 7):
-            if i == 0:
-                jogador1.pecas.add(peca_atual)
-                peca_atual = d.pecas.head.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador3.pecas.add(peca_atual.getDados())
-            else:
-                peca_atual = peca_atual.getProximo()
-                jogador1.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador3.pecas.add(peca_atual.getDados())
+            peca_atual = deque[i]
+            jogador1.pecas.add(peca_atual)
+        for c in range(7, 14):
+            peca_atual = deque[c]
+            jogador2.pecas.add(peca_atual)
+        for x in range(14, 21):
+            peca_atual = deque[x]
+            jogador3.pecas.add(peca_atual)
+        
         break
     elif qtd_jogadores == 4:
         jogador1 = Jogador()
@@ -58,23 +53,17 @@ while True:
         jogador4 = Jogador()
         jogador4.nome = nome_jogador(4)
         for i in range(0, 7):
-            if i == 0:
-                jogador1.pecas.add(peca_atual)
-                peca_atual = d.pecas.head.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador3.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador4.pecas.add(peca_atual.getDados())
-            else:
-                peca_atual = peca_atual.getProximo()
-                jogador1.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador2.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador3.pecas.add(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                jogador4.pecas.add(peca_atual.getDados())
+            peca_atual = deque[i]
+            jogador1.pecas.add(peca_atual)
+        for c in range(7, 14):
+            peca_atual = deque[c]
+            jogador2.pecas.add(peca_atual)
+        for x in range(14, 21):
+            peca_atual = deque[x]
+            jogador3.pecas.add(peca_atual)
+        for y in range(21, 28):
+            peca_atual = deque[y]
+            jogador4.pecas.add(peca_atual)
         break
     else:
         print('Opção inválida')
@@ -100,8 +89,4 @@ elif qtd_jogadores == 4:
     jogador3.imprime_pecas()
     print(jogador4.nome)
     jogador4.imprime_pecas()
-
-
-d = Domino()
-print(d.embaralhadas.dados)
 
