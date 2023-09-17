@@ -92,9 +92,11 @@ class Deque:
     
     def add_randon(self, elem):
         if rd(0,1) == 0:
-            self.add_first(elem)
-        else:
             self.add_last(elem)
+        else :
+            self.add_first(elem)
+        
+        
 
     def delete_randon(self):
         if rd(0,1) == 0:

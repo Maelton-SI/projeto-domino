@@ -30,7 +30,7 @@ class ListaEncadeada:
 
     def emb(self,d):
         peca_atual = self.head.getDados()
-        for i in range(0, 4):
+        for i in range(0, 28):
             if i == 0:
                 print(peca_atual)
                 d.add_randon(peca_atual)
@@ -40,3 +40,4 @@ class ListaEncadeada:
                 d.add_randon(peca_atual.getDados())
                 peca_atual = peca_atual.getProximo()
                 #print("removido")
+        
