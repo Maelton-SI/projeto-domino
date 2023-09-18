@@ -1,4 +1,4 @@
-from estrutura_de_dados.Noh import Noh
+from estruturas_de_dados.Noh import Noh
 
 class ListaEncadeada:
     def __init__(self):
@@ -28,6 +28,9 @@ class ListaEncadeada:
                 peca_atual = peca_atual.getProximo()
         print()
 
+    def get_ultimo_noh(self):
+        return self.head
+    
     def emb(self,d):
         peca_atual = self.head.getDados()
         for i in range(0, 4):
@@ -40,3 +43,6 @@ class ListaEncadeada:
                 d.add_randon(peca_atual.getDados())
                 peca_atual = peca_atual.getProximo()
                 #print("removido")
+            
+if __name__ == "__main__":
+    pass
