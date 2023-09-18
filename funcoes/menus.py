@@ -1,3 +1,5 @@
+from os import system
+
 def menu_inicial():
     while True:
         print("==============================")
@@ -15,7 +17,8 @@ def menu_inicial():
         if escolha in [1,2,3,4]:
             return escolha
         else:
-            print('Opção inválida, tente novamente!\n')
+            system("cls")
+            print('\nOpção inválida, tente novamente!\n')
 
 if __name__ == "__main__":
     pass

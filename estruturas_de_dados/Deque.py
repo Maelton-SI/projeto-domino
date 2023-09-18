@@ -7,18 +7,18 @@ class DequeVazio(Exception):
     pass
 
 class Deque:
-    def __init__(self, CAPACIDADE=3):
+    def __init__(self, CAPACIDADE=28):
         self.capacidade = CAPACIDADE
         self.dados = [None] * self.capacidade
         self.tamanho = 0
-
+    
     def __len__(self):
         return self.tamanho
     
     def isfull(self):
         return self.tamanho == self.capacidade
     
-    def isempty(self):
+    def is_empty(self):
         return self.tamanho == 0
     
     def add_last(self, elemento):
@@ -54,7 +54,7 @@ class Deque:
 
     def delete_first(self):
         try:
-            if self.isempty():
+            if self.is_empty():
                 raise DequeVazio()
             else:
                 self.dados[0] = None
@@ -74,7 +74,7 @@ class Deque:
 
     def delete_last(self):
         try:
-            if self.isempty():
+            if self.is_empty():
                 raise DequeVazio()
             else:
                 last_data = self.__len__()-1
@@ -89,18 +89,6 @@ class Deque:
     def last(self):
         last_data = self.__len__()-1
         return self.dados[last_data]
-    
-    def add_randon(self, elem):
-        if rd(0,1) == 0:
-            self.add_first(elem)
-        else:
-            self.add_last(elem)
-
-    def delete_randon(self):
-        if rd(0,1) == 0:
-            self.delete_last()
-        else:
-            self.delete_first()
 
 if __name__ == "__main__":
     pass

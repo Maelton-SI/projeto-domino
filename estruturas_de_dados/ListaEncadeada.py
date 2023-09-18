@@ -1,4 +1,4 @@
-from estrutura_de_dados.Noh import Noh
+from estruturas_de_dados.Noh import Noh
 
 class ListaEncadeada:
     def __init__(self):

@@ -1,4 +1,4 @@
-from estrutura_de_dados.ListaEncadeada import ListaEncadeada
+from estruturas_de_dados.ListaEncadeada import ListaEncadeada
 
 class Jogador():
     def __init__(self):
@@ -29,7 +29,6 @@ class Jogador():
         while noh_atual != None:
             print(f"[{noh_atual.getDados()[0]}-{noh_atual.getDados()[1]}] ", end="")
             noh_atual = noh_atual.getProximo()
-        print('\n')
 
 if __name__ == "__main__":
     pass

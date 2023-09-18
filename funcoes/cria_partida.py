@@ -10,6 +10,7 @@ def cria_partida():
         jogador_um = Jogador()
         jogador_dois = Jogador()
 
+        print()
         nome_jogador_um = str(input("Digite o nome do primeiro jogador: "))
         nome_jogador_dois = str(input("Digite o nome do segundo jogador: "))
 
@@ -26,6 +27,7 @@ def cria_partida():
         jogador_dois = Jogador()
         jogador_tres = Jogador()
 
+        print()
         nome_jogador_um = str(input("Digite o nome do primeiro jogador: "))
         nome_jogador_dois = str(input("Digite o nome do segundo jogador: "))
         nome_jogador_tres = str(input("Digite o nome do terceiro jogador: "))
@@ -46,6 +48,7 @@ def cria_partida():
         jogador_tres = Jogador()
         jogador_quatro = Jogador()
 
+        print()
         nome_jogador_um = str(input("Digite o nome do primeiro jogador: "))
         nome_jogador_dois = str(input("Digite o nome do segundo jogador: "))
         nome_jogador_tres = str(input("Digite o nome do terceiro jogador: "))
@@ -64,7 +67,7 @@ def cria_partida():
         return mesa
 
     elif opcao_menu_inicial == 4:
-        print("Obrigado por jogar conosco, até a próxima!")
+        print("\nObrigado por jogar conosco, até a próxima!\n")
         
         return False
     

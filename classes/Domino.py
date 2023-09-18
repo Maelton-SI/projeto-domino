@@ -1,9 +1,14 @@
-from estrutura_de_dados.ListaEncadeada import ListaEncadeada
-from estrutura_de_dados.Noh import Noh
+from estruturas_de_dados.ListaEncadeada import ListaEncadeada
+from estruturas_de_dados.Noh import Noh
+from estruturas_de_dados.Deque import Deque
+from random import randint
 
 class Domino:
     def __init__(self):
         self.pecas = self.gera_domino()
+
+    def setPecas(self, pecas):
+        self.pecas = pecas
     
     def gera_domino(self):
         """
@@ -18,9 +23,6 @@ class Domino:
         
         return pecas
     
-    def embaralha_domino(self):
-        pass
-
     def remove_proxima_peca(self):
         """
         Remove a proxima peça disponível do dominó e retorna seu valor.
@@ -34,6 +36,64 @@ class Domino:
             return proxima_peca
         else:
             return False
+            
+    def embaralha_domino(self):
+        def converte_lista_domino_em_deque_embaralhado():
+            deque_auxiliar_um = Deque()
+
+            while self.pecas.head != None:
+                peca_atual = self.remove_proxima_peca()
+
+                if randint(0,100) % 2 == 0:
+                    deque_auxiliar_um.add_last(peca_atual)
+                else:
+                    deque_auxiliar_um.add_first(peca_atual)
+            
+            deque_auxiliar_dois = Deque()
+
+            while not deque_auxiliar_um.is_empty():
+            
+                if randint(0,100) % 2 == 0:
+                    peca_atual = deque_auxiliar_um.last()
+                    deque_auxiliar_um.delete_last()
+
+                    if randint(0,100) % 2 == 0:
+                        deque_auxiliar_dois.add_first(peca_atual)
+                    else:
+                        deque_auxiliar_dois.add_last(peca_atual)
+                else:
+                    peca_atual = deque_auxiliar_um.first()
+                    deque_auxiliar_um.delete_first()
+
+                    if randint(0,100) % 2 == 0:
+                        deque_auxiliar_dois.add_first(peca_atual)
+                    else:
+                        deque_auxiliar_dois.add_last(peca_atual)
+            
+            return deque_auxiliar_dois
+        
+        def converte_deque_em_lista_domino_embaralhado(deque):
+            domino_embaralhado = ListaEncadeada()
+
+            while not deque.is_empty():
+                if randint(0,100) % 2 == 0:
+                    peca_atual = deque.last()
+                    deque.delete_last()
+
+                    domino_embaralhado.add(peca_atual)
+                else:
+                    peca_atual = deque.first()
+                    deque.delete_first()
+
+                    domino_embaralhado.add(peca_atual)
+            
+            return domino_embaralhado
+        
+        deque_embaralhado = converte_lista_domino_em_deque_embaralhado()
+        domino_embaalhado = converte_deque_em_lista_domino_embaralhado(deque_embaralhado)
+
+        self.setPecas(domino_embaalhado)
+        
 
     def imprime_domino(self):
         noh_atual = self.pecas.head
