@@ -8,11 +8,31 @@ class ListaEncadeada:
     def is_empty(self):
         return self.head == None
 
-    def add(self, item):
-        novo_noh = Noh(item)
+    def add(self, elemento):
+        novo_noh = Noh(elemento)
         novo_noh.setProximo(self.head)
         self.head = novo_noh
         self.size += 1 
+    
+    def remove(self, valor_noh):
+        if self.head == None:
+            raise ValueError("{} is not in list".format(valor_noh))
+        elif self.head.getDados() == valor_noh:
+            self.head = self.head.getProximo()
+            self.size =- 1
+        else:
+            ancestor = self.head
+            ponteiro = self.head.getProximo()
+            while(ponteiro):
+                if ponteiro.getDados() == valor_noh:
+                    ancestor.setProximo(ponteiro.getProximo())
+                    ponteiro.setProximo(None)
+                    self.size =- 1
+                    return True
+           
+                ancestor = ponteiro
+                ponteiro = ponteiro.getProximo()
+            raise ValueError("{} is not in list".format(valor_noh))
     
     def __len__(self):
         return self.size
@@ -30,19 +50,6 @@ class ListaEncadeada:
 
     def get_ultimo_noh(self):
         return self.head
-    
-    def emb(self,d):
-        peca_atual = self.head.getDados()
-        for i in range(0, 4):
-            if i == 0:
-                print(peca_atual)
-                d.add_randon(peca_atual)
-                peca_atual = self.head.getProximo()
-            else:
-                print(peca_atual.getDados())
-                d.add_randon(peca_atual.getDados())
-                peca_atual = peca_atual.getProximo()
-                #print("removido")
             
 if __name__ == "__main__":
     pass
