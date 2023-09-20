@@ -160,7 +160,7 @@ class Mesa():
             noh_atual_jogador = noh_atual_jogador.getProximo()
 
         if not alguem_jogou:
-            return "EMPATE"
+            return "EMPATE", self.jogadores
         elif self.get_ganhador():
             return self.get_ganhador()
         else:
