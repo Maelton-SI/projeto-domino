@@ -3,6 +3,10 @@ from classes.Mesa import Mesa
 from funcoes.menus import menu_inicial
 
 def cria_partida():
+    """
+    Retorna mesa com seus respectivos jogadores.
+    Retorna False caso o usário escolha sair.
+    """
     opcao_menu_inicial = menu_inicial()
     mesa = Mesa()
 

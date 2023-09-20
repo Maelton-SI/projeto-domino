@@ -17,6 +17,9 @@ class Mesa():
     def set_ganhador(self, ganhador):
         self.ganhador = ganhador
     
+    def get_ganhador(self):
+        return self.ganhador
+    
     def add_jogador(self, jogador):
         self.jogadores.add(jogador)
     
@@ -47,7 +50,11 @@ class Mesa():
     def imprime_mesa(self):
         self.imprime_pecas_jogadores()
         print()
-        print(self.pecas.dados)
+        
+        print('Jogo: ', end='')
+        for i in range(0, self.pecas.tamanho):
+            print(f'[{self.pecas.dados[i][0]}-{self.pecas.dados[i][1]}] ', end='')
+        print()
     
     def get_extremidade_direita(self):
         """
@@ -120,31 +127,66 @@ class Mesa():
                 self.pecas.add_first(peca)
 
     def rodada(self):
-        alguem_jogou, alguem_ganhou = False, False
+        self.imprime_mesa()
+
+        alguem_jogou = False
 
         noh_atual_jogador = self.jogadores.head
+        
+        if len(self.pecas) == 0:
+            jogador_atual = noh_atual_jogador.getDados()
+            peca_jogada = jogador_atual.jogar(jogador_atual.get_proxima_peca()[0], 
+                                                jogador_atual.get_proxima_peca()[1])
+            
+            self.add_peca(peca_jogada)
+            noh_atual_jogador = noh_atual_jogador.getProximo()
+
         while noh_atual_jogador != None:
-            if alguem_ganhou: break
 
             jogador_atual = noh_atual_jogador.getDados()
-            peca_jogada = jogador_atual.jogar(self.get_extremidade_direita(), self.get_extremidade_esquerda())
+            peca_jogada = jogador_atual.jogar(self.get_extremidade_direita(), 
+                                                self.get_extremidade_esquerda())
             
             if peca_jogada:
                 self.add_peca(peca_jogada)
                 alguem_jogou = True
-                alguem_ganhou = jogador_atual.get_ganhou()
+                
+                print(jogador_atual.get_ganhou())
+                if jogador_atual.get_ganhou():
+                    self.set_ganhador(jogador_atual)
+                    print(f"{jogador_atual.get_nome()} ganhou!")
+                    break
             
             noh_atual_jogador = noh_atual_jogador.getProximo()
 
         if not alguem_jogou:
             return "EMPATE"
-        elif alguem_ganhou:
-            return "GANHOU"
+        elif self.get_ganhador():
+            return self.get_ganhador()
+        else:
+            return False
+        
+    def compara_pecas(self):
+        menor_somatorio_pecas = 67
 
-    def comecar_partida(self):
-        primeira_peca = self.jogadores.head.getDados().joga_primeira_peca()
-        self.add_peca(primeira_peca)
-        self.rodada()
+        noh_atual_jogador = self.jogadores.head
+
+        while noh_atual_jogador != None:
+
+            jogador_atual = noh_atual_jogador.getDados()
+            peca_jogada = jogador_atual.jogar(self.get_extremidade_direita(), 
+                                                self.get_extremidade_esquerda())
+            
+            if peca_jogada:
+                self.add_peca(peca_jogada)
+                alguem_jogou = True
+                
+                if jogador_atual.get_ganhou():
+                    self.set_ganhador(jogador_atual)
+                    print(f"{jogador_atual.get_nome()} ganhou!")
+                    break
+            
+            noh_atual_jogador = noh_atual_jogador.getProximo()
 
 if __name__ == "__main__":
     pass
