@@ -52,3 +52,6 @@ class Fila:
 
     def first(self):
         pass
+
+if __name__ == "__main__":
+    pass
