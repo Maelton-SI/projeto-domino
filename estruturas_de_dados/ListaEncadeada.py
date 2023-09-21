@@ -19,7 +19,7 @@ class ListaEncadeada:
             raise ValueError("{} is not in list".format(valor_noh))
         elif self.head.getDados() == valor_noh:
             self.head = self.head.getProximo()
-            self.size =- 1
+            self.size -= 1
         else:
             ancestor = self.head
             ponteiro = self.head.getProximo()
@@ -27,7 +27,7 @@ class ListaEncadeada:
                 if ponteiro.getDados() == valor_noh:
                     ancestor.setProximo(ponteiro.getProximo())
                     ponteiro.setProximo(None)
-                    self.size =- 1
+                    self.size -= 1
                     return True
            
                 ancestor = ponteiro
