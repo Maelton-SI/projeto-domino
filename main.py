@@ -34,6 +34,9 @@ def main():
                 qtd_jogadores = rodada[1].size
                 jogador_atual = rodada[1].head
                 for i in range(0, qtd_jogadores):
+                    if qtd_jogadores == 2 and i == 1:
+                        break
+
                     proximo_jogador = jogador_atual.getProximo()
                     if vencedor == 'EMPATE':
                         if jogador_atual.dados.get_somatorio_pecas() > proximo_jogador.dados.get_somatorio_pecas():
@@ -47,7 +50,7 @@ def main():
                     jogador_atual = proximo_jogador
 
                 if vencedor != 'EMPATE':
-                    print(f'Ganhador(a): {vencedor.dados.get_nome()}')
+                    print(f'{vencedor.dados.get_nome()} ganhou!')
                 else:
                     print('EMPATE')
                 break
