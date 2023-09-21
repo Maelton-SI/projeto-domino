@@ -53,6 +53,10 @@ def main():
                 break
         
             elif type(rodada) == Jogador:
+                # mesa.imprime_pecas_jogadores()
+                mesa.imprime_mesa()
+                print()
+                print(f'{rodada.get_nome()} ganhou!')
                 break
 
 if __name__ == "__main__":

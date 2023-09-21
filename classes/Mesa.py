@@ -43,7 +43,6 @@ class Mesa():
         while noh_jogador_atual != None:
             jogador_atual = noh_jogador_atual.getDados()
             jogador_atual.imprime_pecas()
-            print()
 
             noh_jogador_atual = noh_jogador_atual.getProximo()
     
@@ -155,7 +154,7 @@ class Mesa():
                 
                 if jogador_atual.get_ganhou():
                     self.set_ganhador(jogador_atual)
-                    print(f"{jogador_atual.get_nome()} ganhou!")
+                    # print(f"{jogador_atual.get_nome()} ganhou!")
                     break
             
             noh_atual_jogador = noh_atual_jogador.getProximo()
