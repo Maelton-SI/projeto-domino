@@ -16,23 +16,26 @@ class ListaEncadeada:
     
     def remove(self, valor_noh):
         if self.head == None:
-            raise ValueError("{} is not in list".format(valor_noh))
+            print("{} is not in list".format(valor_noh))
         elif self.head.getDados() == valor_noh:
             self.head = self.head.getProximo()
             self.size -= 1
         else:
             ancestor = self.head
             ponteiro = self.head.getProximo()
+            removeu = False
             while(ponteiro):
                 if ponteiro.getDados() == valor_noh:
                     ancestor.setProximo(ponteiro.getProximo())
                     ponteiro.setProximo(None)
                     self.size -= 1
-                    return True
-           
+                    removeu = True
+                    break
+                
                 ancestor = ponteiro
                 ponteiro = ponteiro.getProximo()
-            raise ValueError("{} is not in list".format(valor_noh))
+            if not removeu:
+                print("{} is not in list".format(valor_noh))
     
     def __len__(self):
         return self.size
