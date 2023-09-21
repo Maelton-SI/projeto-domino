@@ -36,9 +36,23 @@ def main():
         while True:
             rodada = mesa.rodada()
 
-            if rodada == "EMPATE":
-                print('EMPATE')
-                break
+            if type(rodada) == tuple:
+                vencedor = 'EMPATE'
+                qtd_jogadores = rodada[1].size
+                jogador_atual = rodada[1].head
+                
+                for i in range(0, qtd_jogadores):
+                    proximo_jogador = jogador_atual.getProximo()
+                    if jogador_atual.dados.get_somatorio_pecas() > proximo_jogador.dados.get_somatorio_pecas():
+                        vencedor = proximo_jogador.dados.get_nome()
+                    elif jogador_atual.dados.get_somatorio_pecas() < proximo_jogador.dados.get_somatorio_pecas():
+                        vencedor = jogador_atual.dados.get_nome()
+
+                if vencedor != 'EMPATE':
+                    print(f'Ganhador(a): {vencedor}')
+                else:
+                    print('EMPATE')
+        
             elif type(rodada) == "Jogador":
                 break
 

@@ -79,11 +79,14 @@ class Jogador(metaclass = Tipo):
         somatorio = int()
 
         noh_peca_atual_jogador = self.pecas.head
-        while noh_peca_atual_jogador != None:
+        # while noh_peca_atual_jogador != None:
+        # print(self.pecas.size)
+        for i in range(0, self.pecas.size):
+            # print('entrou no somatório')
             peca_atual = noh_peca_atual_jogador.getDados()
 
-            somatorio += int(peca_atual[0]) + int(peca_atual[1])
-        
+            somatorio += (peca_atual[0] + peca_atual[1])
+            noh_peca_atual_jogador = noh_peca_atual_jogador.getProximo()
         return somatorio
 
 if __name__ == "__main__":
