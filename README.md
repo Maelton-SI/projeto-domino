@@ -16,14 +16,17 @@ Maelton Lima dos Santos <br>
     2. Durante o embaralhamento foi utilizado a estrutura deque por permitir 
     a entrada de dados dos dois lados, aumentando a aleatoriedade das peças 
     armazenadas; 
+    3. A mesa também foi implementada com um deque pelo mesmo motivo do 
+    embaralhamento, por permitir inserir peças através das duas extremidades.
 
 ## Estruturas de Dados:
 
     1. Lista encadeada: a implementação da lista encadeada foi feita modificando 
     o head a cada novo nó, deixando a operação como O(1);
-    2. Deque: o deque foi implementado para embaralhamento, utilizando a função
-    random para trocar a entradas dos dados, caso seja 0 vai entrar no início 
-    e se for 1 vai ao fim, embaralhando a ordem;
+    2. Deque: o deque foi implementado para embaralhamento e para a mesa do jogo. 
+    Para o embaralhamento foi utilizanda a função random para trocar a entradas 
+    dos dados, caso seja 0 vai entrar no início e se for 1 vai ao fim, 
+    embaralhando a ordem;
 
 # Dificuldades:
 
@@ -33,16 +36,17 @@ Maelton Lima dos Santos <br>
 
 # Conclusões:
 
-    1. Todas as funcionalidade do projeto foram implementadas, sendo para lista 
-    encadeada: 
-        1.1. Adicionar O(1) 
-        1.2. Embaralhar O(n)
-    2. O deque tem o seguinte desempenho: 
-        2.1. Adicionar no final é O(1) por ter o tamanho sempre atualizado; 
-        2.2. Adicionar no começo é O(n) pois ao adicionar no início as peças 
+    1. Conseguimos realizar quase todas as funcionalidade do projeto, com 
+    exceção da interação do jogador com o jogo. 
+    2. Para a lista encadeada temos:
+        2.1. Adicionar O(1) 
+        2.2. Embaralhar O(n)
+    3. O deque tem o seguinte desempenho: 
+        3.1. Adicionar no final é O(1) por ter o tamanho sempre atualizado; 
+        3.2. Adicionar no começo é O(n) pois ao adicionar no início as peças 
         seguintes devem ser empurradas para casa seguinte;
-        2.3. Deletar o primeiro também é O(n), pois ao deletar o primeiro é
+        3.3. Deletar o primeiro também é O(n), pois ao deletar o primeiro é
         necessário mover todas as peças uma casa a frente;
-        2.4. E por fim deletar o último é O(n).
+        3.4. E por fim deletar o último é O(n).
 
 
