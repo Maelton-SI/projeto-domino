@@ -37,7 +37,6 @@ class Jogador(metaclass = Tipo):
         Retorna nó da peça a ser jogada e retira nó das peças do jogador.
         Caso o jogador não tenha peça para jogar, retorna None.
         """
-        noh_peca_anterior = None
 
         noh_peca_atual_jogador = self.pecas.head
         while noh_peca_atual_jogador != None:
@@ -79,10 +78,8 @@ class Jogador(metaclass = Tipo):
         somatorio = int()
 
         noh_peca_atual_jogador = self.pecas.head
-        # while noh_peca_atual_jogador != None:
-        # print(self.pecas.size)
+        
         for i in range(0, self.pecas.size):
-            # print('entrou no somatório')
             peca_atual = noh_peca_atual_jogador.getDados()
 
             somatorio += (peca_atual[0] + peca_atual[1])

@@ -43,7 +43,6 @@ class Mesa():
         while noh_jogador_atual != None:
             jogador_atual = noh_jogador_atual.getDados()
             jogador_atual.imprime_pecas()
-            print()
 
             noh_jogador_atual = noh_jogador_atual.getProximo()
     
@@ -142,6 +141,7 @@ class Mesa():
             noh_atual_jogador = noh_atual_jogador.getProximo()
 
         while noh_atual_jogador != None:
+            print(self.ganhador)
             if self.get_ganhador():
                 break
             
@@ -161,35 +161,30 @@ class Mesa():
             noh_atual_jogador = noh_atual_jogador.getProximo()
 
         if not alguem_jogou:
-            return "EMPATE", self.jogadores
-          
+            
+            ganhador = "EMPATE"
+            menor_somatorio = 100
+            noh_jogador_atual = self.jogadores.head
+            
+            
+            while noh_jogador_atual != None:
+                jogador_atual = noh_jogador_atual.getDados()
+                qtd_pontos_jogador = jogador_atual.get_somatorio_pecas()
+
+                if qtd_pontos_jogador < menor_somatorio:
+                    menor_somatorio = qtd_pontos_jogador
+                    ganhador = jogador_atual
+                
+                elif qtd_pontos_jogador == menor_somatorio:
+                    return "EMPATE"
+            
+            print(f"{jogador_atual.get_nome()} ganhou!")
+            
+            self.set_ganhador(jogador_atual)
+            return self.get_ganhador()
+    
         elif self.get_ganhador():
             return self.get_ganhador()
-          
-        else:
-            return False
-        
-    def compara_pecas(self):
-        menor_somatorio_pecas = 67
-
-        noh_atual_jogador = self.jogadores.head
-
-        while noh_atual_jogador != None:
-
-            jogador_atual = noh_atual_jogador.getDados()
-            peca_jogada = jogador_atual.jogar(self.get_extremidade_direita(), 
-                                                self.get_extremidade_esquerda())
-            
-            if peca_jogada:
-                self.add_peca(peca_jogada)
-                alguem_jogou = True
-                
-                if jogador_atual.get_ganhou():
-                    self.set_ganhador(jogador_atual)
-                    print(f"{jogador_atual.get_nome()} ganhou!")
-                    break
-            
-            noh_atual_jogador = noh_atual_jogador.getProximo()
 
 if __name__ == "__main__":
     pass
