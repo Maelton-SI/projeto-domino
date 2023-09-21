@@ -162,8 +162,10 @@ class Mesa():
 
         if not alguem_jogou:
             return "EMPATE", self.jogadores
+          
         elif self.get_ganhador():
             return self.get_ganhador()
+          
         else:
             return False
         
