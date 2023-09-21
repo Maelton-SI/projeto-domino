@@ -142,7 +142,9 @@ class Mesa():
             noh_atual_jogador = noh_atual_jogador.getProximo()
 
         while noh_atual_jogador != None:
-
+            if self.get_ganhador():
+                break
+            
             jogador_atual = noh_atual_jogador.getDados()
             peca_jogada = jogador_atual.jogar(self.get_extremidade_direita(), 
                                                 self.get_extremidade_esquerda())
@@ -151,7 +153,6 @@ class Mesa():
                 self.add_peca(peca_jogada)
                 alguem_jogou = True
                 
-                print(jogador_atual.get_ganhou())
                 if jogador_atual.get_ganhou():
                     self.set_ganhador(jogador_atual)
                     print(f"{jogador_atual.get_nome()} ganhou!")
@@ -160,9 +161,11 @@ class Mesa():
             noh_atual_jogador = noh_atual_jogador.getProximo()
 
         if not alguem_jogou:
-            return "EMPATE"
+            return "EMPATE", self.jogadores
+          
         elif self.get_ganhador():
             return self.get_ganhador()
+          
         else:
             return False
         
