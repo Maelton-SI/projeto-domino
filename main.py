@@ -33,30 +33,20 @@ def main():
                 vencedor = 'EMPATE'
                 qtd_jogadores = rodada[1].size
                 jogador_atual = rodada[1].head
-                for i in range(1, qtd_jogadores):
+                for i in range(0, qtd_jogadores):
                     proximo_jogador = jogador_atual.getProximo()
                     if vencedor == 'EMPATE':
-                        print('entrou no if')
-                        print(vencedor)
                         if jogador_atual.dados.get_somatorio_pecas() > proximo_jogador.dados.get_somatorio_pecas():
-                            # vencedor = proximo_jogador.dados.get_nome()
                             vencedor = proximo_jogador
                         elif jogador_atual.dados.get_somatorio_pecas() < proximo_jogador.dados.get_somatorio_pecas():
-                            # vencedor = jogador_atual.dados.get_nome()
                             vencedor = jogador_atual
                     else:
-                        print('entrou no else')
-                        print(vencedor.dados.get_nome())
                         if vencedor.dados.get_somatorio_pecas() > jogador_atual.dados.get_somatorio_pecas():
                             vencedor = jogador_atual
-                        # elif jogador_atual.dados.get_somatorio_pecas() < proximo_jogador.dados.get_somatorio_pecas():
-                        #     vencedor = jogador_atual.dados.get_nome()
                    
                     jogador_atual = proximo_jogador
 
-                print(type(vencedor))
                 if vencedor != 'EMPATE':
-                    # print(f'Ganhador(a): {vencedor}')
                     print(f'Ganhador(a): {vencedor.dados.get_nome()}')
                 else:
                     print('EMPATE')
