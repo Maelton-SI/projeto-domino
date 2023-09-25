@@ -16,19 +16,28 @@ def main():
                 vencedor = 'EMPATE'
                 qtd_jogadores = rodada[1].size
                 jogador_atual = rodada[1].head
-                for i in range(0, qtd_jogadores):
+                for i in range(0, qtd_jogadores-1):
                     if qtd_jogadores == 2 and i == 1:
                         break
 
                     proximo_jogador = jogador_atual.getProximo()
-                    if vencedor == 'EMPATE':
+                    if i == 0:
                         if jogador_atual.dados.get_somatorio_pecas() > proximo_jogador.dados.get_somatorio_pecas():
                             vencedor = proximo_jogador
                         elif jogador_atual.dados.get_somatorio_pecas() < proximo_jogador.dados.get_somatorio_pecas():
                             vencedor = jogador_atual
+                        
+                        
+                    elif vencedor == 'EMPATE':
+                        if jogador_atual.dados.get_somatorio_pecas() > proximo_jogador.dados.get_somatorio_pecas():
+                            vencedor = proximo_jogador
+                        
                     else:
-                        if vencedor.dados.get_somatorio_pecas() > jogador_atual.dados.get_somatorio_pecas():
-                            vencedor = jogador_atual
+                        if vencedor.dados.get_somatorio_pecas() > proximo_jogador.dados.get_somatorio_pecas():
+                            vencedor = proximo_jogador
+                        elif vencedor.dados.get_somatorio_pecas() == proximo_jogador.dados.get_somatorio_pecas():
+                            vencedor = 'EMPATE'
+                        
                    
                     jogador_atual = proximo_jogador
 
